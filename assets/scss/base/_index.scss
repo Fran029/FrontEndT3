@@ -1,0 +1,154 @@
+$primary-color: rgb(25, 32, 75);
+$white-color: white;
+$dark-color: rgb(51, 63, 50);
+$footer-item-width: 200px;
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    min-height: 100vh; 
+}
+
+.header {
+    .nav-link {
+        color: $white-color !important; 
+    }
+
+    .navbar-brand i {
+        font-size: 50px; 
+        margin-right: 1px; 
+        color: $white-color;
+    }
+
+    .header__title {
+        color: $dark-color;
+    }
+
+    h1 {
+        color: $white-color; 
+        margin: 0; 
+    }
+
+    h5 {
+        color: $white-color;
+    }
+}
+
+.main {
+    section {
+        max-width: 800px; 
+        margin: 0 auto; 
+        padding: 20px; 
+    }
+
+    .main__carousel {
+        height: 400px; 
+        overflow: hidden; 
+        .carousel-inner img {
+            height: 100%; 
+            object-fit: cover; 
+        }
+    }
+
+    .main__welcome {
+        h2, h6 {
+            color: black; 
+            padding: 5px 0 0 50px;
+            text-align: center;
+            height: 80px;
+        }
+    }
+}
+
+.footer {
+    color: $white-color;
+    display: grid;                
+    grid-template-columns: repeat(auto-fit, minmax($footer-item-width, 1fr));
+    justify-items: center;          
+    align-items: center;          
+    padding: 100px;                
+    background-color: $primary-color; 
+    gap: 40px; /* Espacio entre items */
+
+    .footer__item {
+        position: relative;   
+        width: $footer-item-width;
+
+        i {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 5px 0 0 5px;
+        }
+
+        &::after {
+            content: "";                  
+            position: absolute;           
+            right: -7px;                 
+            top: 50%;                    
+            transform: translateY(-50%); 
+            width: 2px;                  
+            height: 250px;               
+            background-color: #3e358e;
+        }
+    }
+
+    .footer__description {
+        font-size: 14px;
+        color: whitesmoke;
+        margin-top: 20px; 
+        line-height: 1.5;
+    }
+
+    .footer__item:last-child::after {
+        content: none;                
+    }
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .header__title {
+        text-align: center; 
+    }
+
+    .header__nav-list {
+        flex-direction: column;
+    }
+
+    .header__nav-item {
+        margin: 10px 0; 
+    }
+
+    .main__carousel {
+        height: 300px;  
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand i {
+        font-size: 40px; 
+    }
+
+    .footer__item {
+        margin: 10px 0; 
+    }
+
+    h1 {
+        font-size: 24px; 
+    }
+
+    h5 {
+        font-size: 16px; 
+    }
+
+    .main__carousel {
+        height: 200px; 
+    }
+
+    .carousel-inner img {
+        object-fit: contain; 
+    }
+}
